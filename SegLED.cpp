@@ -66,6 +66,13 @@ void SegLED::configureLED()
 
 }
 
+void SegLED::onLED(int32_t index)
+{
+  leds[index] = CRGB ( 0, 255, 0);
+  FastLED.delay(100);
+  FastLED.show();
+}
+
 void SegLED::testLED()
 {
     // Turn the LED on, then pause
@@ -79,4 +86,30 @@ void SegLED::testLED()
   // // FastLED.delay(20);
   // // FastLED.show();
   // delay(1000);
+}
+
+void SegLED::onLEDSegement(int32_t start)
+{
+    for(int i = start;i<start+3;i++)
+  {
+      onLED(i);
+  }
+}
+
+
+void SegLED::writeSegment(int32_t start, int32_t end, int32_t num)
+{
+  switch (num)
+  {
+    case 0:
+    {
+      break;
+    }
+    case 1:
+    {
+      onLEDSegement(start);
+      onLEDSegement(start+3);
+      break;
+    }
+  }
 }

@@ -19,10 +19,6 @@
 #define DATA_PIN 6
 #define CLOCK_PIN 13
 
-// // Define the array of leds
-
-
-
 /*!
  * @brief Main SegLED class
  */
@@ -32,6 +28,9 @@ public:
   void helloWorld();
   void configureLED(); // Maybe call it "begin" to follow conventions
   void testLED();
+  void writeSegment(int32_t start, int32_t end, int32_t num);
+  void onLEDSegement(int32_t start);
+  void onLED(int32_t index);
 
 private:
   int16_t ac1, ac2, ac3, b1, b2, mb, mc, md;
