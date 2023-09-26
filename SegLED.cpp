@@ -73,6 +73,13 @@ void SegLED::onLED(int32_t index)
   FastLED.show();
 }
 
+void SegLED::offLED(int32_t index)
+{
+  leds[index] = CRGB ( 0, 0, 0);
+  // FastLED.delay(100);
+  FastLED.show();
+}
+
 void SegLED::testLED()
 {
     // Turn the LED on, then pause
@@ -92,23 +99,124 @@ void SegLED::onLEDSegement(int32_t start)
 {
     for(int i = start;i<start+3;i++)
   {
-      onLED(i);
+      leds[i] = CRGB ( 0, 255, 0);
   }
 }
 
 
 void SegLED::writeSegment(int32_t start, int32_t end, int32_t num)
 {
+  FastLED.delay(100);
+  FastLED.clear();
   switch (num)
   {
     case 0:
     {
+      onLEDSegement(start+3);
+      onLEDSegement(start+6);
+      onLEDSegement(start+9);
+      onLEDSegement(start+13);
+      onLEDSegement(start+16);
+      onLEDSegement(start+19);
+      FastLED.delay(100);
+      FastLED.show();
       break;
     }
     case 1:
     {
+      onLEDSegement(start+3);
+      onLEDSegement(start+19);
+      FastLED.delay(100);
+      FastLED.show();
+      break;
+    }
+    case 2:
+    {
+      onLEDSegement(start+16);
+      onLEDSegement(start+19);
+      onLEDSegement(start);
+      onLEDSegement(start+9);
+      onLEDSegement(start+6);
+      FastLED.delay(100);
+      FastLED.show();
+      break;
+    }
+    case 3:
+    {
+      onLEDSegement(start+16);
+      onLEDSegement(start+19);
+      onLEDSegement(start);
+      onLEDSegement(start+19);
+      onLEDSegement(start+6);
+      onLEDSegement(start+3);
+      FastLED.delay(100);
+      FastLED.show();
+      break;
+    }
+    case 4:
+    {
+      onLEDSegement(start+13);
+      onLEDSegement(start);
+      onLEDSegement(start+19);
+      onLEDSegement(start+3);
+      FastLED.delay(100);
+      FastLED.show();
+      break;
+    }
+    case 5:
+    {
+      onLEDSegement(start+16);
+      onLEDSegement(start+13);
       onLEDSegement(start);
       onLEDSegement(start+3);
+      onLEDSegement(start+6);
+      FastLED.delay(100);
+      FastLED.show();
+      break;
+    }
+    case 6:
+    {
+      onLEDSegement(start+16);
+      onLEDSegement(start+13);
+      onLEDSegement(start);
+      onLEDSegement(start+3);
+      onLEDSegement(start+6);
+      onLEDSegement(start+9);
+      FastLED.delay(100);
+      FastLED.show();
+      break;
+    }
+    case 7:
+    {
+      onLEDSegement(start+16);
+      onLEDSegement(start+19);
+      onLEDSegement(start+3);
+      FastLED.delay(100);
+      FastLED.show();
+      break;
+    }
+    case 8:
+    {
+      onLEDSegement(start);
+      onLEDSegement(start+3);
+      onLEDSegement(start+6);
+      onLEDSegement(start+9);
+      onLEDSegement(start+13);
+      onLEDSegement(start+16);
+      onLEDSegement(start+19);
+      FastLED.delay(100);
+      FastLED.show();
+      break;
+    }
+    case 9:
+    {
+      onLEDSegement(start);
+      onLEDSegement(start+3);
+      onLEDSegement(start+13  );
+      onLEDSegement(start+16);
+      onLEDSegement(start+19);
+      FastLED.delay(100);
+      FastLED.show();
       break;
     }
   }

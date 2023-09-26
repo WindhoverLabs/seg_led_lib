@@ -31,6 +31,7 @@ public:
   void writeSegment(int32_t start, int32_t end, int32_t num);
   void onLEDSegement(int32_t start);
   void onLED(int32_t index);
+  void offLED(int32_t index);
 
 private:
   int16_t ac1, ac2, ac3, b1, b2, mb, mc, md;
