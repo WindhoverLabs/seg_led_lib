@@ -28,7 +28,8 @@ public:
   void helloWorld();
   void configureLED(); // Maybe call it "begin" to follow conventions
   void testLED();
-  void writeSegment(int32_t start, int32_t end, int32_t num);
+  void writeSegment(int32_t start, int32_t num);
+  void writeSegments(int32_t start, String num);
   void onLEDSegement(int32_t start);
   void onLED(int32_t index);
   void offLED(int32_t index);
