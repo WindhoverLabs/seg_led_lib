@@ -76,7 +76,6 @@ void SegLED::onLED(int32_t index)
 void SegLED::offLED(int32_t index)
 {
   leds[index] = CRGB ( 0, 0, 0);
-  // FastLED.delay(100);
   FastLED.show();
 }
 
@@ -89,10 +88,6 @@ void SegLED::testLED()
       FastLED.delay(100);
       FastLED.show();
   }
-  // // leds[3] = CRGB ( 0, 100, 255);
-  // // FastLED.delay(20);
-  // // FastLED.show();
-  // delay(1000);
 }
 
 void SegLED::onLEDSegement(int32_t start)
@@ -116,16 +111,12 @@ void SegLED::writeSegment(int32_t start, int32_t num)
       onLEDSegement(start+13);
       onLEDSegement(start+16);
       onLEDSegement(start+19);
-      // FastLED.delay(100);
-      // FastLED.show();
       break;
     }
     case 1:
     {
       onLEDSegement(start+3);
       onLEDSegement(start+19);
-      // FastLED.delay(100);
-      // FastLED.show();
       break;
     }
     case 2:
@@ -135,8 +126,6 @@ void SegLED::writeSegment(int32_t start, int32_t num)
       onLEDSegement(start);
       onLEDSegement(start+9);
       onLEDSegement(start+6);
-      // FastLED.delay(100);
-      // FastLED.show();
       break;
     }
     case 3:
@@ -147,8 +136,6 @@ void SegLED::writeSegment(int32_t start, int32_t num)
       onLEDSegement(start+19);
       onLEDSegement(start+6);
       onLEDSegement(start+3);
-      // FastLED.delay(100);
-      // FastLED.show();
       break;
     }
     case 4:
@@ -157,8 +144,6 @@ void SegLED::writeSegment(int32_t start, int32_t num)
       onLEDSegement(start);
       onLEDSegement(start+19);
       onLEDSegement(start+3);
-      // FastLED.delay(100);
-      // FastLED.show();
       break;
     }
     case 5:
@@ -168,8 +153,6 @@ void SegLED::writeSegment(int32_t start, int32_t num)
       onLEDSegement(start);
       onLEDSegement(start+3);
       onLEDSegement(start+6);
-      // FastLED.delay(100);
-      // FastLED.show();
       break;
     }
     case 6:
@@ -180,8 +163,6 @@ void SegLED::writeSegment(int32_t start, int32_t num)
       onLEDSegement(start+3);
       onLEDSegement(start+6);
       onLEDSegement(start+9);
-      // FastLED.delay(100);
-      // FastLED.show();
       break;
     }
     case 7:
@@ -189,8 +170,6 @@ void SegLED::writeSegment(int32_t start, int32_t num)
       onLEDSegement(start+16);
       onLEDSegement(start+19);
       onLEDSegement(start+3);
-      // FastLED.delay(100);
-      // FastLED.show();
       break;
     }
     case 8:
@@ -202,8 +181,6 @@ void SegLED::writeSegment(int32_t start, int32_t num)
       onLEDSegement(start+13);
       onLEDSegement(start+16);
       onLEDSegement(start+19);
-      // FastLED.delay(100);
-      // FastLED.show();
       break;
     }
     case 9:
@@ -213,14 +190,10 @@ void SegLED::writeSegment(int32_t start, int32_t num)
       onLEDSegement(start+13  );
       onLEDSegement(start+16);
       onLEDSegement(start+19);
-        // FastLED.delay(100);
-        // FastLED.show();
       break;
     }
   }
 }
-
-
 
 void SegLED::writeSegments(int32_t start, String num)
 {
@@ -228,14 +201,9 @@ void SegLED::writeSegments(int32_t start, String num)
   FastLED.clear();
  for(int i = 0; i<num.length();i++)
  {
-  Serial.println(num.substring(i, i));
   writeSegment(startIndex, num.substring(i, i+1).toInt());
   startIndex += 25;
  }
 
-  //  FastLED.delay(100);
-  
-
-  FastLED.delay(100);
   FastLED.show();
 }
