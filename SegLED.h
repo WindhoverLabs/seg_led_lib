@@ -30,6 +30,13 @@ public:
   void testLED();
   void writeSegment(int32_t start, int32_t num);
   void writeSegments(int32_t start, String num);
+  void writeFirstSegment(int32_t start);
+  void writeSecondSegment(int32_t start);
+  void writeThirdSegment(int32_t start);
+  void writeFourthSegment(int32_t start);
+  void writeFifthSegment(int32_t start);
+  void writeSixthSegment(int32_t start);
+  void writeSeventhSegment(int32_t star);
   void onLEDSegement(int32_t start);
   void onLED(int32_t index);
   void offLED(int32_t index);

@@ -105,94 +105,124 @@ void SegLED::writeSegment(int32_t start, int32_t num)
   {
     case 0:
     {
-      onLEDSegement(start+3);
-      onLEDSegement(start+6);
-      onLEDSegement(start+9);
-      onLEDSegement(start+13);
-      onLEDSegement(start+16);
-      onLEDSegement(start+19);
+      writeSecondSegment(start);
+      writeThirdSegment(start);
+      writeFourthSegment(start);
+      writeFifthSegment(start);
+      writeSixthSegment(start);
+      writeSeventhSegment(start);
       break;
     }
     case 1:
     {
-      onLEDSegement(start+3);
-      onLEDSegement(start+19);
+      writeSecondSegment(start);
+      writeSeventhSegment(start);
       break;
     }
     case 2:
     {
-      onLEDSegement(start+16);
-      onLEDSegement(start+19);
-      onLEDSegement(start);
-      onLEDSegement(start+9);
-      onLEDSegement(start+6);
+      writeFirstSegment(start);
+      writeThirdSegment(start);
+      writeFourthSegment(start);
+      writeSixthSegment(start);
+      writeSeventhSegment(start);
       break;
     }
     case 3:
     {
-      onLEDSegement(start+16);
-      onLEDSegement(start+19);
-      onLEDSegement(start);
-      onLEDSegement(start+19);
-      onLEDSegement(start+6);
-      onLEDSegement(start+3);
+      writeFirstSegment(start);
+      writeSecondSegment(start);
+      writeThirdSegment(start);
+      writeSixthSegment(start);
+      writeSeventhSegment(start);
       break;
     }
     case 4:
     {
-      onLEDSegement(start+13);
-      onLEDSegement(start);
-      onLEDSegement(start+19);
-      onLEDSegement(start+3);
+      writeFirstSegment(start);
+      writeSecondSegment(start);
+      writeFifthSegment(start);
+      writeSeventhSegment(start);
       break;
     }
     case 5:
     {
-      onLEDSegement(start+16);
-      onLEDSegement(start+13);
-      onLEDSegement(start);
-      onLEDSegement(start+3);
-      onLEDSegement(start+6);
+      writeFirstSegment(start);
+      writeSecondSegment(start);
+      writeThirdSegment(start);
+      writeFifthSegment(start);
+      writeSixthSegment(start);
       break;
     }
     case 6:
     {
-      onLEDSegement(start+16);
-      onLEDSegement(start+13);
-      onLEDSegement(start);
-      onLEDSegement(start+3);
-      onLEDSegement(start+6);
-      onLEDSegement(start+9);
+      writeFirstSegment(start);
+      writeSecondSegment(start);
+      writeThirdSegment(start);
+      writeFourthSegment(start);
+      writeFifthSegment(start);
+      writeSixthSegment(start);
       break;
     }
     case 7:
     {
-      onLEDSegement(start+16);
-      onLEDSegement(start+19);
-      onLEDSegement(start+3);
+      writeSecondSegment(start);
+      writeSixthSegment(start);
+      writeSeventhSegment(start);
       break;
     }
     case 8:
     {
-      onLEDSegement(start);
-      onLEDSegement(start+3);
-      onLEDSegement(start+6);
-      onLEDSegement(start+9);
-      onLEDSegement(start+13);
-      onLEDSegement(start+16);
-      onLEDSegement(start+19);
+      writeFirstSegment(start);
+      writeSecondSegment(start);
+      writeThirdSegment(start);
+      writeFourthSegment(start);
+      writeFifthSegment(start);
+      writeSixthSegment(start);
+      writeSeventhSegment(start);
       break;
     }
     case 9:
     {
-      onLEDSegement(start);
-      onLEDSegement(start+3);
-      onLEDSegement(start+13  );
-      onLEDSegement(start+16);
-      onLEDSegement(start+19);
+      writeFirstSegment(start);
+      writeSecondSegment(start);
+      writeThirdSegment(start);
+      writeFifthSegment(start);
+      writeSixthSegment(start);
+      writeSeventhSegment(start);
       break;
     }
   }
+}
+
+void SegLED::writeFirstSegment(int32_t start)
+{
+      onLEDSegement(start);
+}
+void SegLED::writeSecondSegment(int32_t start)
+{
+      onLEDSegement(start+19);
+}
+void SegLED::writeThirdSegment(int32_t start)
+{
+
+      onLEDSegement(start+16);
+}
+void SegLED::writeFourthSegment(int32_t start)
+{
+  onLEDSegement(start+13);
+}
+void SegLED::writeFifthSegment(int32_t start)
+{
+  onLEDSegement(start+9);
+}
+void SegLED::writeSixthSegment(int32_t start)
+{
+  onLEDSegement(start+6);
+}
+void SegLED::writeSeventhSegment(int32_t start)
+{
+  onLEDSegement(start+3);
 }
 
 void SegLED::writeSegments(int32_t start, String num)
