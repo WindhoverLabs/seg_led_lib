@@ -68,7 +68,7 @@ void SegLED::configureLED()
 
 void SegLED::onLED(int32_t index)
 {
-  leds[index] = CRGB ( 0, 255, 0);
+  leds[index] = CRGB ( 255, 0, 0);
   FastLED.delay(100);
   FastLED.show();
 }
@@ -84,7 +84,7 @@ void SegLED::testLED()
     // Turn the LED on, then pause
   for(int i = 42;i<NUM_LEDS;i++)
   {
-      leds[i] = CRGB ( 0, 255, 0);
+      leds[i] = CRGB ( 0, 139, 0);
       FastLED.delay(100);
       FastLED.show();
   }
@@ -94,145 +94,265 @@ void SegLED::onLEDSegement(int32_t start)
 {
     for(int i = start;i<start+3;i++)
   {
-      leds[i] = CRGB ( 255, 255, 0);
+      leds[i] = CRGB ( 0, 255, 0);
   }
 }
 
 
-void SegLED::writeSegment(int32_t start, int32_t num)
+void SegLED::writeSegment(int32_t start, int32_t num, DigitPair digit)
 {
   switch (num)
   {
     case 0:
     {
-      writeSecondSegment(start);
-      writeThirdSegment(start);
-      writeFourthSegment(start);
-      writeFifthSegment(start);
-      writeSixthSegment(start);
-      writeSeventhSegment(start);
+      writeSecondSegment(start, digit);
+      writeThirdSegment(start, digit);
+      writeFourthSegment(start, digit);
+      writeFifthSegment(start, digit);
+      writeSixthSegment(start, digit);
+      writeSeventhSegment(start, digit);
       break;
     }
     case 1:
     {
-      writeSecondSegment(start);
-      writeSeventhSegment(start);
+      writeSecondSegment(start, digit);
+      writeSeventhSegment(start, digit);
       break;
     }
     case 2:
     {
-      writeFirstSegment(start);
-      writeThirdSegment(start);
-      writeFourthSegment(start);
-      writeSixthSegment(start);
-      writeSeventhSegment(start);
+      writeFirstSegment(start, digit);
+      writeThirdSegment(start, digit);
+      writeFourthSegment(start, digit);
+      writeSixthSegment(start, digit);
+      writeSeventhSegment(start, digit);
       break;
     }
     case 3:
     {
-      writeFirstSegment(start);
-      writeSecondSegment(start);
-      writeThirdSegment(start);
-      writeSixthSegment(start);
-      writeSeventhSegment(start);
+      writeFirstSegment(start, digit);
+      writeSecondSegment(start, digit);
+      writeThirdSegment(start, digit);
+      writeSixthSegment(start, digit);
+      writeSeventhSegment(start, digit);
       break;
     }
     case 4:
     {
-      writeFirstSegment(start);
-      writeSecondSegment(start);
-      writeFifthSegment(start);
-      writeSeventhSegment(start);
+      writeFirstSegment(start, digit);
+      writeSecondSegment(start, digit);
+      writeFifthSegment(start, digit);
+      writeSeventhSegment(start, digit);
       break;
     }
     case 5:
     {
-      writeFirstSegment(start);
-      writeSecondSegment(start);
-      writeThirdSegment(start);
-      writeFifthSegment(start);
-      writeSixthSegment(start);
+      writeFirstSegment(start, digit);
+      writeSecondSegment(start, digit);
+      writeThirdSegment(start, digit);
+      writeFifthSegment(start, digit);
+      writeSixthSegment(start, digit);
       break;
     }
     case 6:
     {
-      writeFirstSegment(start);
-      writeSecondSegment(start);
-      writeThirdSegment(start);
-      writeFourthSegment(start);
-      writeFifthSegment(start);
-      writeSixthSegment(start);
+      writeFirstSegment(start, digit);
+      writeSecondSegment(start, digit);
+      writeThirdSegment(start, digit);
+      writeFourthSegment(start, digit);
+      writeFifthSegment(start, digit);
+      writeSixthSegment(start, digit);
       break;
     }
     case 7:
     {
-      writeSecondSegment(start);
-      writeSixthSegment(start);
-      writeSeventhSegment(start);
+      writeSecondSegment(start, digit);
+      writeSixthSegment(start, digit);
+      writeSeventhSegment(start, digit);
       break;
     }
     case 8:
     {
-      writeFirstSegment(start);
-      writeSecondSegment(start);
-      writeThirdSegment(start);
-      writeFourthSegment(start);
-      writeFifthSegment(start);
-      writeSixthSegment(start);
-      writeSeventhSegment(start);
+      writeFirstSegment(start, digit);
+      writeSecondSegment(start, digit);
+      writeThirdSegment(start, digit);
+      writeFourthSegment(start, digit);
+      writeFifthSegment(start, digit);
+      writeSixthSegment(start, digit);
+      writeSeventhSegment(start, digit);
       break;
     }
     case 9:
     {
-      writeFirstSegment(start);
-      writeSecondSegment(start);
-      writeThirdSegment(start);
-      writeFifthSegment(start);
-      writeSixthSegment(start);
-      writeSeventhSegment(start);
+      writeFirstSegment(start, digit);
+      writeSecondSegment(start, digit);
+      writeThirdSegment(start, digit);
+      writeFifthSegment(start, digit);
+      writeSixthSegment(start, digit);
+      writeSeventhSegment(start, digit);
       break;
     }
   }
 }
 
-void SegLED::writeFirstSegment(int32_t start)
+void SegLED::writeFirstSegment(int32_t start, DigitPair digit)
 {
+  switch (digit)
+  {
+    case FIRST:
+    {
       onLEDSegement(start);
-}
-void SegLED::writeSecondSegment(int32_t start)
-{
+      break;
+    }
+    case SECOND:
+    {
       onLEDSegement(start+19);
+      break;
+    }
+    
+  }
+  
 }
-void SegLED::writeThirdSegment(int32_t start)
+void SegLED::writeSecondSegment(int32_t start, DigitPair digit)
+{
+    switch (digit)
+  {
+    case FIRST:
+    {
+      onLEDSegement(start+19);
+      break;
+    }
+    case SECOND:
+    {
+      onLEDSegement(start+6);
+      break;
+    }
+  }
+      
+}
+void SegLED::writeThirdSegment(int32_t start, DigitPair digit)
 {
 
+      switch (digit)
+  {
+    case FIRST:
+    {
       onLEDSegement(start+16);
+      break;
+    }
+    case SECOND:
+    {
+      onLEDSegement(start+3);
+      break;
+    }
+  }
+
+
+
+  // onLEDSegement(start+3); SECOND digit
+      // onLEDSegement(start+16);
 }
-void SegLED::writeFourthSegment(int32_t start)
+void SegLED::writeFourthSegment(int32_t start, DigitPair digit)
 {
-  onLEDSegement(start+13);
+      switch (digit)
+  {
+    case FIRST:
+    {
+      onLEDSegement(start+13);
+      break;
+    }
+    case SECOND:
+    {
+      onLEDSegement(start);
+      break;
+    }
+  }
+
+
+
+  //  onLEDSegement(start); SECOND digit
+  // onLEDSegement(start+13);
 }
-void SegLED::writeFifthSegment(int32_t start)
+void SegLED::writeFifthSegment(int32_t start, DigitPair digit)
 {
-  onLEDSegement(start+9);
+
+    switch (digit)
+  {
+    case FIRST:
+    {
+      onLEDSegement(start+9);
+      break;
+    }
+    case SECOND:
+    {
+      onLEDSegement(start+16);
+      break;
+    }
+  }
+
+
+  // onLEDSegement(start+16); SECOND digit
+  // onLEDSegement(start+9);
 }
-void SegLED::writeSixthSegment(int32_t start)
+void SegLED::writeSixthSegment(int32_t start, DigitPair digit)
 {
-  onLEDSegement(start+6);
+
+    switch (digit)
+  {
+    case FIRST:
+    {
+      onLEDSegement(start+6);
+      break;
+    }
+    case SECOND:
+    {
+      onLEDSegement(start+13);
+      break;
+    }
+  }
+
+
+  // onLEDSegement(start+13); SECOND digit
+  // onLEDSegement(start+6);
 }
-void SegLED::writeSeventhSegment(int32_t start)
+void SegLED::writeSeventhSegment(int32_t start, DigitPair digit)
 {
-  onLEDSegement(start+3);
+
+      switch (digit)
+  {
+    case FIRST:
+    {
+      onLEDSegement(start+3);
+      break;
+    }
+    case SECOND:
+    {
+      onLEDSegement(start+10);
+      break;
+    }
+  }
+
+
 }
 
-void SegLED::writeSegments(int32_t start, String num)
+/**
+ * This function makes an assumption that "num.length()%2 == 0"
+ * TODO:Add error-checking for this.
+*/
+void SegLED::writeSegments(int32_t start, String num, DigitPair digit)
 {
   int startIndex = start;
   FastLED.clear();
- for(int i = 0; i<num.length();i++)
+ for(int i = 0; i<num.length();i+=2 )
  {
-  writeSegment(startIndex, num.substring(i, i+1).toInt());
-  startIndex += 25;
+
+  // led.writeSeventhSegment(startIndex, SegLED::DigitPair::FIRST);
+  // led.writeSeventhSegment(startIndex + 25, SegLED::DigitPair::SECOND);
+  
+  
+  writeSegment(startIndex, num.substring(i, i+1).toInt(), SegLED::DigitPair::FIRST);
+  writeSegment(startIndex+25, num.substring(i+1, i+2).toInt(), SegLED::DigitPair::SECOND);
+  startIndex += 52;
  }
 
   FastLED.show();

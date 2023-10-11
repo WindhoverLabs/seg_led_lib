@@ -10,7 +10,7 @@
 #include <FastLED.h>
 
 // How many leds in your strip?
-#define NUM_LEDS 150
+#define NUM_LEDS 300
 
 // For led chips like WS2812, which have a data line, ground, and power, you just
 // need to define DATA_PIN.  For led chipsets that are SPI based (four wires - data, clock,
@@ -24,26 +24,31 @@
  */
 class SegLED {
 public:
+
+    enum DigitPair 
+  {
+    FIRST,
+    SECOND
+  };
+
   SegLED();
   void helloWorld();
   void configureLED(); // Maybe call it "begin" to follow conventions
   void testLED();
-  void writeSegment(int32_t start, int32_t num);
-  void writeSegments(int32_t start, String num);
-  void writeFirstSegment(int32_t start);
-  void writeSecondSegment(int32_t start);
-  void writeThirdSegment(int32_t start);
-  void writeFourthSegment(int32_t start);
-  void writeFifthSegment(int32_t start);
-  void writeSixthSegment(int32_t start);
-  void writeSeventhSegment(int32_t star);
+  void writeSegment(int32_t start, int32_t num, DigitPair digit);
+  void writeSegments(int32_t start, String num, DigitPair digit);
+  void writeFirstSegment(int32_t start, DigitPair digit);
+  void writeSecondSegment(int32_t start, DigitPair digit);
+  void writeThirdSegment(int32_t start, DigitPair digit);
+  void writeFourthSegment(int32_t start, DigitPair digit);
+  void writeFifthSegment(int32_t start, DigitPair digit);
+  void writeSixthSegment(int32_t start, DigitPair digit);
+  void writeSeventhSegment(int32_t star, DigitPair digit);
   void onLEDSegement(int32_t start);
   void onLED(int32_t index);
   void offLED(int32_t index);
 
 private:
-  int16_t ac1, ac2, ac3, b1, b2, mb, mc, md;
-  uint16_t ac4, ac5, ac6;
   CRGB leds[NUM_LEDS];
 };
 
